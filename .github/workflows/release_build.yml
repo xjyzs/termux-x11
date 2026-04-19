@@ -50,8 +50,6 @@ jobs:
 
     - name: Build
       run: ./gradlew assembleRelease
-    - name: Build companion package
-      run: ./build_termux_package
     - name: Store app-arm64-v8a-release
       uses: actions/upload-artifact@v7
       with:
