@@ -15,7 +15,7 @@ android {
         buildConfigField "String", "COMMIT", "\"" + ("git rev-parse HEAD\n".execute().getText().trim() ?: (System.getenv('CURRENT_COMMIT') ?: "NO_COMMIT")) + "\""
     }
 
-    signingConfigs.release {
+    signingConfigs.debug {
         storeFile file('testkey_untrusted.jks')
         keyAlias 'alias'
         storePassword 'xrj45yWGLbsO7W0v'
@@ -36,8 +36,8 @@ android {
     packagingOptions.jniLibs.useLegacyPackaging false
     buildFeatures.aidl true
     buildFeatures.buildConfig true
-    buildTypes.debug {
-        signingConfig signingConfigs.debug
+    buildTypes {
+        //signingConfig signingConfigs.debug
         minifyEnabled true
         shrinkResources true
         proguardFiles 'proguard-rules.pro'
@@ -103,8 +103,4 @@ afterEvaluate {
         out << '  public Prefs(Context ctx) {\n'
         out << '    super(ctx);\n'
         out << '  }\n'
-        out << '}\n'
-    }
-    android.sourceSets.main.java.srcDirs += 'build/generated/java'
-    preBuild.dependsOn generatePrefs
-}
+        out
