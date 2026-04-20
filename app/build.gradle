@@ -37,10 +37,18 @@ android {
     buildFeatures.aidl true
     buildFeatures.buildConfig true
     buildTypes {
-        //signingConfig signingConfigs.debug
-        minifyEnabled true
-        shrinkResources true
-        proguardFiles 'proguard-rules.pro'
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles 'proguard-rules.pro'
+        }
+            release {
+                //signingConfig signingConfigs.debug
+                minifyEnabled true
+                shrinkResources true
+                proguardFiles 'proguard-rules.pro'
+            }
     }
 }
 
