@@ -104,3 +104,4 @@ afterEvaluate {
         out << '    super(ctx);\n'
         out << '  }\n'
         out
+}
