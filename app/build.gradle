@@ -15,7 +15,7 @@ android {
         buildConfigField "String", "COMMIT", "\"" + ("git rev-parse HEAD\n".execute().getText().trim() ?: (System.getenv('CURRENT_COMMIT') ?: "NO_COMMIT")) + "\""
     }
 
-    signingConfigs.debug {
+    signingConfigs.release {
         storeFile file('testkey_untrusted.jks')
         keyAlias 'alias'
         storePassword 'xrj45yWGLbsO7W0v'
